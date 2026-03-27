@@ -1,44 +1,87 @@
+/* Переменные для легкой смены цветов */
 :root {
-    --bg-color: #ffffff;
-    --text-color: #333;
-    --nav-bg: #f4f4f4;
+    --bg-color: #f8f9fa;
+    --container-bg: #ffffff;
+    --text-color: #2d3436;
+    --accent-color: #0984e3;
+    --nav-bg: #2d3436;
+    --nav-text: #dfe6e9;
+    --border-radius: 12px;
+}
+
+/* Стили для темной темы */
+body.dark-theme {
+    --bg-color: #121212;
+    --container-bg: #1e1e1e;
+    --text-color: #f5f6fa;
+    --nav-bg: #000000;
+}
+
+* {
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
-    transition: 0.3s;
+    line-height: 1.6;
 }
 
-/* Темная тема */
-body.dark-theme {
-    --bg-color: #1a1a1a;
-    --text-color: #f4f4f4;
-    --nav-bg: #333;
-}
-
+/* Единая навигация [cite: 43] */
 header {
-    background: var(--nav-bg);
-    padding: 1rem;
+    background-color: var(--nav-bg);
+    padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav a {
-    margin-right: 15px;
+    color: var(--nav-text);
     text-decoration: none;
-    color: inherit;
+    margin-left: 20px;
+    font-weight: 500;
 }
 
-nav a.active {
-    font-weight: bold;
-    border-bottom: 2px solid #007bff;
+nav a:hover, nav a.active {
+    color: var(--accent-color);
 }
 
+/* Контентные блоки */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+section {
+    background: var(--container-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+/* Кнопка смены темы [cite: 44] */
+#theme-toggle {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Футер [cite: 81-86] */
 footer {
     text-align: center;
-    padding: 20px;
-    margin-top: 50px;
+    padding: 40px;
+    font-size: 0.9rem;
+    color: #636e72;
 }
